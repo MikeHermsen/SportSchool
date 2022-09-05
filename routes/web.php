@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/generate-barcode', [EntranceController::class, 'index'])->name('generate.barcode');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

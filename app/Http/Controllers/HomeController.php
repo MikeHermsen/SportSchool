@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EntranceController extends Controller
+class HomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,17 +13,16 @@ class EntranceController extends Controller
      */
     public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-
-        return view('entrance');
+        return view('home');
     }
 }
