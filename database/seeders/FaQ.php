@@ -31,9 +31,14 @@ class FaQ extends Seeder
                 'location'  => '/abbenement_types',
             ],
             [
+                'question' => 'Maak QR Ingang',
+                'answer' => 'De QR CODE Token based ding',
+                'location'  => '/entrance/qr_code',
+            ],
+            [
                 'question' => 'Hoe kom ik de sportschool in',
                 'answer' => 'Scan via deze pagina de QR code',
-                'location'  => '/qr_code_scanner',
+                'location'  => '/entrance/scanner',
             ],
             [
                 'question' => 'Cursussen aanvragen',

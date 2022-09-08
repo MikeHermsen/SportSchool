@@ -20,7 +20,9 @@ Route::get('/', function () {
     return redirect('login');
 });
 
-Route::get('/generate-barcode', [EntranceController::class, 'index'])->name('generate.barcode');
+Route::get('/entrance/qr_code', [EntranceController::class, 'index'])->name('/entrance/qr_code')->middleware('auth');
+Route::get('entrance.gaurd.{token}', [EntranceController::class, 'gaurd'])->name('entrance.gaurd')->middleware('auth');
+Route::get('/entrance/scanner', [EntranceController::class, 'scanner'])->name('/entrance/scanner')->middleware('auth');
 
 Auth::routes();
 
