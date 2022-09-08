@@ -35,6 +35,16 @@ class FaQ extends Seeder
                 'answer' => 'Scan via deze pagina de QR code',
                 'location'  => '/qr_code_scanner',
             ],
+            [
+                'question' => 'Cursussen aanvragen',
+                'answer' => 'Via hier vraag je een cursus aan',
+                'location'  => '/curssesens_aanvragen',
+            ],
+            [
+                'question' => 'Cursussen inzien van mijzelf',
+                'answer' => 'Via hier kan je je cursussen inzien',
+                'location'  => '/mijn_cursussen',
+            ],
 
 
         ];

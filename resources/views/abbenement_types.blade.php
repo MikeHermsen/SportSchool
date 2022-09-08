@@ -381,7 +381,9 @@
                     </tr>
 
                     <tr>
-                        <th class="py-5 pl-6 pr-6 text-sm font-normal text-gray-500 text-left" scope="row">Addendum</th>
+                        <th class="py-5 pl-6 pr-6 text-sm font-normal text-gray-500 text-left" scope="row">
+                            <a href="{{ route('curssesens_aanvragen') }}" class="text-gray-900 hover:text-gray-700">Cursessens</a>
+                        </th>
 
                         <td class="py-5 px-6">
                             <!-- Heroicon name: solid/check -->

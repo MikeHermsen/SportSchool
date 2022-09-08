@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FaQ::class);
         $this->call(curssesensSeeder::class);
         $this->call(userSeeder::class);
+        $this->call(abbenementListsSeeder::class);
 
     }
 }
