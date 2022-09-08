@@ -8,6 +8,8 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-    <p class="bg-red-200">e</p>
+
+
+
 </body>
 </html>

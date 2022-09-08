@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntranceController;
+use App\Http\Controllers\FaQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +16,12 @@ use App\Http\Controllers\EntranceController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Route::get('/generate-barcode', [EntranceController::class, 'index'])->name('generate.barcode');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\FaQController::class, 'index'])->name('home');
+Route::get('abbenement_types', [App\Http\Controllers\AbbTypeController::class, 'index'])->name('abbenement_types');
