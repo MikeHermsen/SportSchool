@@ -32,9 +32,6 @@
                         <dl class="mt-2 text-base text-gray-500">
                             <div>
                                 <dd>Coach : {{ DB::table('users')->where('id', $pack->coach_id)->value('name') }}</dd>
-                                <dd>Week :
-                                    {{ $curses->datum }}
-                                </dd>
                             </div>
                             <div class="mt-1">
                                 <a class="text-blue-500 hover:text-blue-700" href="{{ route('curses.afmelden', ['id' => $pack->id]) }}">

@@ -19,18 +19,26 @@ class abbenementListsSeeder extends Seeder
             [
                 'name' => 'Gast',
                 'can_take_cursses_amount' => 0,
+                'description' => 'Gast',
+                'price' => 0,
             ],
             [
                 'name' => 'Pricing 1',
                 'can_take_cursses_amount' => 1,
+                'description' => 'Pricing 1',
+                'price' => 10,
             ],
             [
                 'name' => 'Pricing 2',
                 'can_take_cursses_amount' => 2,
+                'description' => 'Pricing 2',
+                'price' => 20,
             ],
             [
                 'name' => 'Pricing 3',
                 'can_take_cursses_amount' => 100,
+                'description' => 'Pricing 3',
+                'price' => 30,
             ]
 
         ];

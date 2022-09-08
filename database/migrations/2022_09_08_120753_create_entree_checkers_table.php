@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('abbenement_lists', function (Blueprint $table) {
+        Schema::create('entree_checkers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
-            $table->integer('price');
-            $table->integer('can_take_cursses_amount');
+            $table->integer('datum');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abbenement_lists');
+        Schema::dropIfExists('entree_checkers');
     }
 };

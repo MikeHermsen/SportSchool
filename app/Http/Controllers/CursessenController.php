@@ -39,15 +39,11 @@ class CursessenController extends Controller
 
         // check if the user is already in the curses
         $now = Carbon::now();
-        $user_curses_length = DB::table('cursus_lists')->where('user_id', $user->id)->where('datum', $now->weekOfYear)->count();
-        $abbenement_rule = DB::table('abbenement_lists')->where('id', $user->abbenement_type)->first();
-
-        // Check if user has right type of abbenement
+        $user_curses_length = DB::table('cursus_lists')->where('user_id', $user->id)->where('cursen', $id)->first();
 
 
-
-        if ($user_curses_length > $abbenement_rule->can_take_cursses_amount) {
-            return redirect('/curssesens_aanvragen')->with('error', 'Je hebt je cursus voor deze week al aangemeld.');
+        if ($user_curses_length) {
+            return redirect('/curssesens_aanvragen')->with('error', 'Je hebt je al voor deze cursus aangemeld.');
         }
 
         // adding user to curses list
