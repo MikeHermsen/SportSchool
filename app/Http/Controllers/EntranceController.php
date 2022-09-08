@@ -36,12 +36,30 @@ class EntranceController extends Controller
         return view('entrance_qr_code',['token' => $token]);
     }
 
+    public function gaurdCode(Request $request)
+    {
+        $token = $request->input('token');
+
+        return $this->gaurd($token);
+
+    }
+
     public function gaurd($token)
     {
 
+        $gaurd = GaurdSecrets::where('token', $token)->first();
+        // check for token
+        if (!$gaurd) {
+            return redirect('/entrance/scanner')->with('error', 'Deze code is niet geldig');
+        }
+
+        if ($gaurd->created_at < now()->subMinutes(5)) {
+            return redirect('entrance/scanner')->with('error', 'Code is verouderd');
+        }
+
         $user = DB::table('users')->where('id', Auth::user()->id)->first();
         if ($user->abbenement_type == 0) {
-            return redirect('entrance')->with('error', 'Pas je abbenement aan om een cursus te volgen');
+            return redirect('/entrance/scanner')->with('error', 'Pas je abbenement aan om een cursus te volgen');
         }
 
         // check if the user is already in the curses
@@ -52,7 +70,7 @@ class EntranceController extends Controller
 
         // Check if user has right type of abbenement
         if ($user_curses_length > $abbenement_rule->can_take_cursses_amount) {
-            return redirect('/entrance')->with('error', 'Je hebt je cursus voor deze week al aangemeld.');
+            return redirect('/entrance/scanner')->with('error', 'Helaas mag je niet naar binnen omdat je al deze week naar binnen bent geweest, pas je abbenement aan om een naar binnen te mogen te volgen');
         }
 
         // adding user to curses list
@@ -60,23 +78,13 @@ class EntranceController extends Controller
             'datum' => $now->weekOfYear,
             'user_id' => $user->id,
         ]);
+        return redirect('/entrance/scanner')->with('success', 'Je mag naar binnen');
 
-        return redirect('entrance')->with('success', 'Je hebt je cursus voor deze week aangemeld.');
-
-
-        $gaurd = GaurdSecrets::where('token', $token)->first();
-        if ($gaurd->created_at > now()->subMinutes(5)) {
-            return "wrong code";
-        } else {
-
-            return "Checkmate";
-
-        }
-        return view('entrance.gaurd', ['token' => $token]);
     }
+
 
     public function scanner()
     {
-        return view('entrance_scanner');
+        return view('/entrance_scanner');
     }
 }
