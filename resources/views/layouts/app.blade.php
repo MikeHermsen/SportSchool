@@ -3,8 +3,8 @@
     <title>Laravel Generate Barcode Examples</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @vite('resources/css/app.css')
-    {{--  <link rel="stylesheet" href="{{ asset('app.css') }}">  --}}
+    {{-- @vite('resources/css/app.css') --}}
+    <link rel="stylesheet" href="{{ asset('app.css') }}">
 
     <script src="{{ asset('/js/jquery-3.6.1.min.js') }}"></script>
     @yield('head')
