@@ -21,11 +21,6 @@ class FaQ extends Seeder
                 'location' => '#',
             ],
             [
-                'question' => 'Waar vraag ik een personal coach',
-                'answer' => 'Klik hier om je aan te melden bij een personal coach',
-                'location'  => '/personal_coach',
-            ],
-            [
                 'question' => 'Waar vind ik de abbenement types',
                 'answer' => 'Klik hier om onze abbenement types te bekijken',
                 'location'  => '/abbenement_types',

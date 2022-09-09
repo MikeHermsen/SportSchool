@@ -9,7 +9,7 @@
 
 
     @if (session('error'))
-        <span class="block sm:inline">{{ session('error') }}</span>
+        <span class="block sm:inline">{!! session('error') !!}</span>
     @endif
 
     <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">

@@ -23,7 +23,7 @@ class curssesensSeeder extends Seeder
             ],
             [
                 'name' => 'pilates',
-                'coach_id' => 1,
+                'coach_id' => 2,
             ],
             [
                 'name' => 'paaldansen',
