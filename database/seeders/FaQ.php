@@ -16,11 +16,6 @@ class FaQ extends Seeder
     {
         $faqs = [
             [
-                'question' => 'What is the purpose of this website?',
-                'answer' => 'Nothing just a showcase',
-                'location' => '#',
-            ],
-            [
                 'question' => 'Waar vind ik de abbenement types',
                 'answer' => 'Klik hier om onze abbenement types te bekijken',
                 'location'  => '/abbenement_types',
@@ -45,7 +40,6 @@ class FaQ extends Seeder
                 'answer' => 'Via hier kan je je cursussen inzien',
                 'location'  => '/mijn_cursussen',
             ],
-
 
         ];
 

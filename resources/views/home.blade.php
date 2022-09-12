@@ -26,32 +26,34 @@
             <h2 class="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">Frequently asked questions</h2>
             <dl class="mt-6 space-y-6 divide-y divide-gray-200">
                 @foreach($faqs as $faq)
-                <div class="pt-6">
-                    <dt class="text-lg">
-                        <button type="button" onclick="accordionToggle('{{ $loop->index }}')"
-                            class="text-left w-full flex justify-between items-start text-gray-400"
-                            aria-controls="faq-{{ $loop->index }}-" aria-expanded="false">
-                            <span class="font-medium text-gray-900"> {{ $faq->question }}
-                            </span>
-                            <span class="ml-6 h-7 flex items-center">
-                                <svg id="btn-0-" class="rotate-0 h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg"
-                                    fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </span>
-                        </button>
-                    </dt>
-                    <dd class="mt-2 pr-12 hidden" id="faq-{{ $loop->index }}-">
-                        <p  class="text-base text-gray-700">
 
-                            @if ($faq->location != '#')
-                                <a class="bg-blue-900 text-white py-2 px-2 rounded-lg mr-5" href="{{ $faq->location }}"> JumpTo </a>
-                            @endif
-                            {{ $faq->answer }}
-                        </p>
-                    </dd>
-                </div>
+                        <div class="pt-6">
+                            <dt class="text-lg">
+                                <button type="button" onclick="accordionToggle('{{ $loop->index }}')"
+                                    class="text-left w-full flex justify-between items-start text-gray-400"
+                                    aria-controls="faq-{{ $loop->index }}-" aria-expanded="false">
+                                    <span class="font-medium text-gray-900"> {{ $faq->question }}
+                                    </span>
+                                    <span class="ml-6 h-7 flex items-center">
+                                        <svg id="btn-0-" class="rotate-0 h-6 w-6 transform" xmlns="http://www.w3.org/2000/svg"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </span>
+                                </button>
+                            </dt>
+                            <dd class="mt-2 pr-12 hidden" id="faq-{{ $loop->index }}-">
+                                <p  class="text-base text-gray-700">
+
+                                    @if ($faq->location != '#')
+                                        <a class="bg-blue-900 text-white py-2 px-2 rounded-lg mr-5" href="{{ $faq->location }}"> JumpTo </a>
+                                    @endif
+
+                                    {{ $faq->answer }}
+                                </p>
+                            </dd>
+                        </div>
                 @endforeach
 
             </dl>

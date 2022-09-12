@@ -1,9 +1,14 @@
 @extends('layouts.app')
 
+@section('head')
+    <script src="{{ asset('/js/html5-qrcode.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/js/scanner.js') }}" type="text/javascript"></script>
+@endsection
+
+
 @section('content')
 <form action="/entrance/gaurd/" method="POST">
     @csrf
-
 
     @if(session('error'))
 

@@ -38,3 +38,4 @@ Route::get('mijn_cursussen', [App\Http\Controllers\CursessenController::class, '
 Route::get('curses.afmelden.{id}', [App\Http\Controllers\CursessenController::class, 'afmelden'])->name('curses.afmelden')->middleware('auth');
 
 Route::get('abbenement.get.{type}', [App\Http\Controllers\AbbTypeController::class, 'changeAbbo'])->name('abbenement.get')->middleware('auth');
+Route::get('/admin/users', [\App\Http\Controllers\AdminController::class, 'ShowUsersList'])->name('/admin/users')->middleware('auth');
