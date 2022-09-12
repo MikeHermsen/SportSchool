@@ -22,9 +22,12 @@ Route::get('/', function () {
 
 Route::get('/entrance/qr_code', [EntranceController::class, 'index'])->name('/entrance/qr_code')->middleware('auth');
 Route::get('entrance.gaurd.{token}', [EntranceController::class, 'gaurd'])->name('entrance.gaurd')->middleware('auth');
+Route::post('/entrance/is_token_user', [EntranceController::class, 'tokenIsUsed'])->name('/entrance/is_token_user')->middleware('auth');
 Route::post('/entrance/gaurd', [EntranceController::class, 'gaurdCode'])->name('/entrance/gaurd')->middleware('auth');
 Route::get('/entrance/scanner', [EntranceController::class, 'scanner'])->name('/entrance/scanner')->middleware('auth');
-
+Route::get('open_door', function () {
+    return view('entrance_gate_open');
+})->name('open_door')->middleware('auth');
 
 
 Auth::routes();
