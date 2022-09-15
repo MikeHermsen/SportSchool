@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\DB;
 
 class CursessenController extends Controller
 {
+    /**
+     * Passing all cursessens to the view
+     *
+     * @return view
+     */
     public function index()
     {
         $curssesens = DB::table('cursessens')->get();
@@ -15,6 +20,11 @@ class CursessenController extends Controller
     }
 
 
+    /**
+     * Function to check how many cursussen the user can still take
+     *
+     * @return view
+     */
     public function curses_left() {
         $user = DB::table('users')->where('id', auth()->user()->id)->first();
 
@@ -23,6 +33,11 @@ class CursessenController extends Controller
         return $user_curses_length;
     }
 
+    /**
+     * Adding user to cursus
+     *
+     * @return view
+     */
     public function aanmelden($id)
     {
         // check if the user curses length for that day
@@ -57,7 +72,11 @@ class CursessenController extends Controller
 
     }
 
-
+    /**
+     * Passing chosen cursessen to the view for the user
+     *
+     * @return view
+     */
     public function mijnCursussen()
     {
         $now = Carbon::now();
@@ -68,6 +87,11 @@ class CursessenController extends Controller
         return view('mijn_cursessens', compact('cursessens'));
     }
 
+    /**
+     * Deleting cursus from user
+     *
+     * @return view
+     */
     public function afmelden($id) {
         $now = Carbon::now();
         $user = DB::table('users')->where('id', auth()->user()->id)->first();

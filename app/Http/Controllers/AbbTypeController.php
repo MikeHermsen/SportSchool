@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class AbbTypeController extends Controller
 {
+
+    /**
+     * Fetching all abbo types from db and pass them with the view to the user.
+     *
+     * @return view
+     */
     public function index()
     {
         $exceptThisIds = [1];
@@ -16,6 +22,11 @@ class AbbTypeController extends Controller
         return view('abbenement_types', compact('abbenementen'));
     }
 
+    /**
+     * Changing the users abbo type
+     *
+     * @return view
+     */
     public function changeAbbo($type) {
         $user = Auth::user();
         DB:: table('users')

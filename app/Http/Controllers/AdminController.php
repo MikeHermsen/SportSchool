@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
 
+    /**
+     * Verify if user is admin
+     *
+     * @return view
+     */
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
@@ -18,6 +23,15 @@ class AdminController extends Controller
             return $next($request);
         });
     }
+
+
+
+
+    /**
+     * Passing all users to the view for the admin
+     *
+     * @return view
+     */
     public function ShowUsersList()
     {
 

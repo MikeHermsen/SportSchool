@@ -21,7 +21,7 @@ class EntranceController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Generating QR Code with token.
      *
      * @return \Illuminate\Http\Response
      */
@@ -36,6 +36,11 @@ class EntranceController extends Controller
         return view('entrance_qr_code',['token' => $token]);
     }
 
+    /**
+     * Reciving the token
+     *
+     * @return view
+     */
     public function gaurdCode(Request $request)
     {
         $token = $request->input('token');
@@ -44,6 +49,11 @@ class EntranceController extends Controller
 
     }
 
+    /**
+     * The Gaurd verifys whether the user can go inside
+     *
+     * @return view
+     */
     public function gaurd($token)
     {
 
@@ -96,6 +106,11 @@ class EntranceController extends Controller
 
     }
 
+    /**
+     * Checking for valid token
+     *
+     * @return view
+     */
     public function tokenIsUsed(Request $request) {
         $token = $request->input('token');
         $gaurd = GaurdSecrets::where('token', $token)->first();
@@ -106,6 +121,11 @@ class EntranceController extends Controller
         return true;
     }
 
+    /**
+     * Returning the view for the input
+     *
+     * @return view
+     */
     public function scanner()
     {
         return view('/entrance_scanner');
