@@ -71,9 +71,10 @@ class EntranceController extends Controller
         $user_curses_last = DB::table('entree_checkers')->where('user_id', $user->id)->where('datum', $now->weekOfYear)->orderBy('created_at', 'desc')->first();
         $abbenement_rule = DB::table('abbenement_lists')->where('id', $user->abbenement_type)->first();
 
-        // if ($user_curses_last->created_at > now()->subMinutes(5)) {
-        //     return redirect('/entrance/scanner')->with('error', 'Je mag pas over 5 minuten weer naar binnen');
-        // }
+
+        if ($user_curses_last && $user_curses_last->created_at > now()->subMinutes(1)) {
+            return redirect('/entrance/scanner')->with('error', 'Je mag pas over 5 minuten weer naar binnen');
+        }
 
 
         // Check if user has right type of abbenement

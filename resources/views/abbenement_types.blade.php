@@ -7,7 +7,7 @@
     <div class="max-w-2xl mx-auto bg-white py-16 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <!-- xs to lg -->
 
-        <div class="hidden lg:block">
+        <div class="">
             <table class="w-full h-px table-fixed">
                 <caption class="sr-only">
                     Pricing plan comparison
